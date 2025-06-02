@@ -1,4 +1,4 @@
-const API_URL = "http://3.237.237.193:5000/api/devices";
+const API_URL = "http://127.0.0.1:5000/api/devices";
 const tableBody = document.getElementById("deviceTableBody");
 const statusActual = document.getElementById("statusActual");
 
@@ -22,6 +22,7 @@ function cargarDatos() {
                     <td>${dispositivo.name}</td>
                     <td>${dispositivo.ip}</td>
                     <td>${dispositivo.status}</td>
+                    <td>${dispositivo.speed ?? "N/A"}</td>
                     <td>${dispositivo.date}</td>
                 `;
 
@@ -31,7 +32,7 @@ function cargarDatos() {
         .catch(error => {
             console.error("Error al obtener los datos:", error);
             statusActual.textContent = "Error al cargar estado actual";
-            tableBody.innerHTML = `<tr><td colspan="5">No se pudieron cargar los datos</td></tr>`;
+            tableBody.innerHTML = `<tr><td colspan="6">No se pudieron cargar los datos</td></tr>`;
         });
 }
 
